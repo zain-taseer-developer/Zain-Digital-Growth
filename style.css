@@ -32,6 +32,15 @@ nav>a:hover,.dd-btn:hover{background:var(--alt)}
 .dd-menu a:hover{background:var(--alt)}
 .dd-menu small{display:block;color:var(--muted);font-size:.82rem}
 .burger{display:none;font-size:1.6rem;background:none;border:0;cursor:pointer}
+.site-search-form{position:relative;flex:0 1 230px;min-width:140px;margin-left:auto}
+.site-search-form input{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
+.site-search-results-panel{position:absolute;top:calc(100% + 8px);right:0;z-index:60;width:min(400px,90vw);max-height:65vh;overflow:auto;padding:14px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 30px rgba(10,40,55,.16)}
+.site-search-results-panel[hidden]{display:none}
+.site-search-status{color:var(--muted);margin-bottom:8px}
+.site-search-results{padding-left:22px;display:grid;gap:12px}
+.site-search-results li::marker{color:var(--main);font-weight:700}
+.site-search-results a{color:var(--main);font-weight:700;text-decoration:underline}
+.site-search-results p{color:var(--muted);font-size:.92rem;margin-top:3px}
 
 /* buttons */
 .btn{display:inline-block;background:var(--main);color:#fff;padding:12px 24px;border-radius:10px;font-weight:600;border:0;cursor:pointer;font-size:1rem;font-family:inherit}
@@ -118,10 +127,16 @@ footer a:hover{color:#fff}
   .hero-grid,.split,.grid3,.grid2,.fgrid{grid-template-columns:1fr}
   .orbit{display:none}
   .burger{display:block}
+  .site-search-form{flex:0 1 260px}
   nav{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 20px;border-bottom:1px solid var(--line)}
   nav.open{display:flex}
   .dd-menu{position:static;display:block;width:auto;border:0;box-shadow:none;padding:0 0 0 12px}
   .dd-btn{text-align:left;font-weight:700}
+}
+@media(max-width:420px){
+  .logo{font-size:.9rem;gap:5px}
+  .site-search-form{flex-basis:100px;min-width:100px}
+  .site-search-form input{padding:8px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
