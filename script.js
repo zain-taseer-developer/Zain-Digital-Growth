@@ -153,20 +153,40 @@ if (headerBar) {
     });
   }
 
+  function updateSearchUrl(query) {
+    var url = new URL(window.location.href);
+    if (query.trim()) {
+      url.searchParams.set("q", query.trim());
+    } else {
+      url.searchParams.delete("q");
+    }
+    window.history.replaceState(window.history.state, "", url);
+  }
+
+  searchInput.value = new URLSearchParams(window.location.search).get("q") || "";
   searchInput.addEventListener("input", function () {
+    updateSearchUrl(searchInput.value);
     renderSearchResults(searchInput.value);
   });
   searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    var firstResult = searchResults.querySelector("a");
-    if (firstResult) window.location.href = firstResult.href;
+    updateSearchUrl(searchInput.value);
+    renderSearchResults(searchInput.value);
+  });
+  window.addEventListener("popstate", function () {
+    searchInput.value = new URLSearchParams(window.location.search).get("q") || "";
+    renderSearchResults(searchInput.value);
   });
   document.addEventListener("click", function (event) {
     if (!searchForm.contains(event.target)) resultsPanel.hidden = true;
   });
   searchInput.addEventListener("focus", function () {
-    if (searchInput.value.trim()) resultsPanel.hidden = false;
+    if (searchInput.value.trim()) {
+      resultsPanel.hidden = false;
+      if (!searchResults.children.length) renderSearchResults(searchInput.value);
+    }
   });
+  if (searchInput.value) renderSearchResults(searchInput.value);
 }
 
 // Mobile menu
