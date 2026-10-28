@@ -8,9 +8,12 @@ if (headerBar) {
   var searchForm = document.createElement("form");
   searchForm.className = "site-search-form";
   searchForm.setAttribute("role", "search");
+  searchForm.method = "get";
+  searchForm.action = new URL("s", document.baseURI).href;
 
   var searchInput = document.createElement("input");
   searchInput.id = "site-search-input";
+  searchInput.name = "k";
   searchInput.type = "search";
   searchInput.placeholder = "Search the site";
   searchInput.setAttribute("aria-label", "Search this website");
@@ -96,14 +99,19 @@ if (headerBar) {
 
   function renderSearchResults(query) {
     searchResults.replaceChildren();
+    var pageResults = document.getElementById("search-page-results");
+    var pageStatus = document.getElementById("search-page-status");
+    if (pageResults) pageResults.replaceChildren();
     var terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
     if (!terms.length) {
       resultsPanel.hidden = true;
+      if (pageStatus) pageStatus.textContent = "Enter a search term to find pages.";
       return;
     }
 
     resultsPanel.hidden = false;
     searchStatus.textContent = "Searching website pages…";
+    if (pageStatus) pageStatus.textContent = "Searching website pages…";
     loadSearchIndex().then(function (index) {
       if (searchInput.value.trim() !== query.trim()) return;
 
@@ -118,7 +126,7 @@ if (headerBar) {
         return { page: page, score: score };
       }).filter(Boolean).sort(function (a, b) { return b.score - a.score; });
 
-      matches.slice(0, 10).forEach(function (match) {
+      function createResult(match) {
         var item = document.createElement("li");
         var link = document.createElement("a");
         link.href = match.page.url;
@@ -137,8 +145,17 @@ if (headerBar) {
         description.textContent = (start ? "…" : "") + snippet +
           (start + 180 < snippetSource.length ? "…" : "");
         item.appendChild(description);
-        searchResults.appendChild(item);
+        return item;
+      }
+
+      matches.slice(0, 10).forEach(function (match) {
+        searchResults.appendChild(createResult(match));
       });
+      if (pageResults) {
+        matches.forEach(function (match) {
+          pageResults.appendChild(createResult(match));
+        });
+      }
 
       var countMessage = matches.length
         ? matches.length + (matches.length === 1 ? " page found." : " pages found.")
@@ -148,33 +165,24 @@ if (headerBar) {
           (index.failedCount === 1 ? " was" : "s were") + " unavailable to search.";
       }
       searchStatus.textContent = countMessage;
+      if (pageStatus) pageStatus.textContent = countMessage;
     }).catch(function (error) {
       searchStatus.textContent = "Search is unavailable: " + error.message;
+      if (pageStatus) pageStatus.textContent = "Search is unavailable: " + error.message;
     });
   }
 
-  function updateSearchUrl(query) {
-    var url = new URL(window.location.href);
-    if (query.trim()) {
-      url.searchParams.set("q", query.trim());
-    } else {
-      url.searchParams.delete("q");
-    }
-    window.history.replaceState(window.history.state, "", url);
+  function getSearchQuery() {
+    var params = new URLSearchParams(window.location.search);
+    return params.get("k") || params.get("q") || "";
   }
 
-  searchInput.value = new URLSearchParams(window.location.search).get("q") || "";
+  searchInput.value = getSearchQuery();
   searchInput.addEventListener("input", function () {
-    updateSearchUrl(searchInput.value);
-    renderSearchResults(searchInput.value);
-  });
-  searchForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    updateSearchUrl(searchInput.value);
     renderSearchResults(searchInput.value);
   });
   window.addEventListener("popstate", function () {
-    searchInput.value = new URLSearchParams(window.location.search).get("q") || "";
+    searchInput.value = getSearchQuery();
     renderSearchResults(searchInput.value);
   });
   document.addEventListener("click", function (event) {
