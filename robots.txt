@@ -1,1 +1,5 @@
-This is robots.txt file By Zain
+User-agent: *
+Disallow: /s?
+Disallow: /*?k=
+
+Sitemap: https://zain-digital-growth.netlify.app/sitemap.xml
