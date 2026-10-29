@@ -1,5 +1,8 @@
 User-agent: *
 Disallow: /s?
+<<<<<<< HEAD
 Disallow: /*?k=
+=======
+>>>>>>> 2ce9417 (pages updated)
 
 Sitemap: https://zain-digital-growth.netlify.app/sitemap.xml
