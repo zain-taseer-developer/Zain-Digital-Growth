@@ -3,39 +3,12 @@ var y = document.getElementById("year");
 if (y) y.textContent = new Date().getFullYear();
 
 // Site-wide search
-var headerBar = document.querySelector(".bar");
-if (headerBar) {
-  var searchForm = document.createElement("form");
-  searchForm.className = "site-search-form";
-  searchForm.setAttribute("role", "search");
-  searchForm.method = "get";
-  searchForm.action = new URL("s", document.baseURI).href;
-
-  var searchInput = document.createElement("input");
-  searchInput.id = "site-search-input";
-  searchInput.name = "k";
-  searchInput.type = "search";
-  searchInput.placeholder = "Search the site";
-  searchInput.setAttribute("aria-label", "Search this website");
-  searchInput.setAttribute("aria-controls", "site-search-results");
-  searchInput.setAttribute("aria-autocomplete", "list");
-  searchInput.autocomplete = "off";
-  searchForm.appendChild(searchInput);
-
-  var resultsPanel = document.createElement("div");
-  resultsPanel.className = "site-search-results-panel";
-  resultsPanel.hidden = true;
-  var searchStatus = document.createElement("p");
-  searchStatus.className = "site-search-status";
-  searchStatus.setAttribute("role", "status");
-  resultsPanel.appendChild(searchStatus);
-
-  var searchResults = document.createElement("ol");
-  searchResults.className = "site-search-results";
-  searchResults.id = "site-search-results";
-  resultsPanel.appendChild(searchResults);
-  searchForm.appendChild(resultsPanel);
-  headerBar.insertBefore(searchForm, document.getElementById("burger") || headerBar.querySelector("nav"));
+var searchForm = document.getElementById("site-search-form");
+if (searchForm) {
+  var searchInput = document.getElementById("site-search");
+  var resultsPanel = document.getElementById("site-search-results-panel");
+  var searchStatus = document.getElementById("site-search-status");
+  var searchResults = document.getElementById("site-search-results");
 
   var searchIndexPromise;
 
@@ -204,6 +177,26 @@ if (burger && nav) {
   burger.addEventListener("click", function () {
     var open = nav.classList.toggle("open");
     burger.setAttribute("aria-expanded", open);
+  });
+}
+
+// Mobile header search
+var searchToggle = document.getElementById("search-toggle");
+var siteHeader = document.querySelector(".top");
+if (searchToggle && siteHeader && searchInput) {
+  searchToggle.addEventListener("click", function () {
+    var open = siteHeader.classList.toggle("search-open");
+    searchToggle.setAttribute("aria-expanded", open);
+    searchToggle.setAttribute("aria-label", open ? "Close search" : "Open search");
+    if (open) searchInput.focus();
+  });
+  searchInput.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && siteHeader.classList.contains("search-open")) {
+      siteHeader.classList.remove("search-open");
+      searchToggle.setAttribute("aria-expanded", "false");
+      searchToggle.setAttribute("aria-label", "Open search");
+      searchToggle.focus();
+    }
   });
 }
 
