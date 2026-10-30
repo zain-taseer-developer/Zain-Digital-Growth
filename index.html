@@ -101,52 +101,71 @@
     </div>
   </header>
   <main class="home-page">
-    <section class="home-hero">
-      <div class="wrap home-hero-grid">
-        <div class="home-hero-copy">
-          <p class="home-eyebrow">Digital services for small businesses and startups</p>
-          <h1>Build a stronger online presence, one clear step at a time.</h1>
-          <p class="home-hero-lead">I help small businesses and startups improve their websites, search visibility, social media and written content with practical, focused digital services.</p>
-          <div class="home-hero-actions">
-            <a class="btn" href="/contact">Tell me about your project</a>
-            <a class="btn ghost" href="#services">Explore the services</a>
+    <section class="hx-hero">
+      <div class="wrap hx-hero-grid">
+        <div class="hx-hero-copy">
+          <p class="hx-chip"><span class="hx-chip-dot" aria-hidden="true"></span>Digital services for small businesses and startups</p>
+          <h1>Build a <span class="hx-accent">stronger online presence</span>, one clear step at a time.</h1>
+          <p class="hx-lead">I help small businesses and startups improve their websites, search visibility, social media and written content with practical, focused digital services.</p>
+          <div class="hx-actions">
+            <a class="hx-button hx-button-primary" href="/contact">
+              Tell me about your project
+              <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3.5 10h12m-5-5 5 5-5 5"/></svg>
+            </a>
+            <a class="hx-button hx-button-secondary" href="#services">Explore the services</a>
           </div>
-          <ul class="home-feature-chips" aria-label="How I work">
-            <li>Single service or combined</li>
-            <li>Clear scope first</li>
-            <li>Mobile-friendly work</li>
-            <li>Simple communication</li>
+          <ul class="hx-trust" aria-label="How I work">
+            <li><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="8"/><path d="m6.5 10 2.3 2.3 4.8-5"/></svg>Single service or combined</li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="8"/><path d="m6.5 10 2.3 2.3 4.8-5"/></svg>Clear scope first</li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="8"/><path d="m6.5 10 2.3 2.3 4.8-5"/></svg>Mobile-friendly work</li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="8"/><path d="m6.5 10 2.3 2.3 4.8-5"/></svg>Simple communication</li>
           </ul>
         </div>
-        <div class="home-diagram">
-          <svg viewBox="0 0 620 440" role="img" aria-labelledby="diagram-title diagram-description">
-            <title id="diagram-title">Four services connected to Zain Digital Growth</title>
-            <desc id="diagram-description">A central Z mark connected to Website Development, SEO, Social Media and Content.</desc>
-            <path class="diagram-line" d="M266 184 167 113M354 184l99-71M266 256l-99 71M354 256l99 71"/>
-            <circle class="diagram-orbit" cx="310" cy="220" r="95"/>
-            <g class="diagram-node">
-              <rect x="18" y="46" width="192" height="76" rx="16"/>
-              <circle cx="48" cy="84" r="15"/><path class="node-symbol" d="M41 84h14M48 77v14"/>
-              <text x="73" y="80">Website</text><text x="73" y="99">Development</text>
+        <div class="hx-diagram">
+          <svg class="hx-orbit-art" viewBox="0 0 540 540" role="img" aria-label="Zain Digital Growth's Z mark at the center of six connected services: Website Development, SEO, Social Media, Content Copywriting, Responsive Design and Technical SEO.">
+            <defs>
+              <linearGradient id="hx-mark-gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#20a8b6"/>
+                <stop offset="1" stop-color="#0a5a70"/>
+              </linearGradient>
+              <radialGradient id="hx-mark-glow">
+                <stop offset="0" stop-color="#0e7490" stop-opacity=".2"/>
+                <stop offset="1" stop-color="#0e7490" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <g aria-hidden="true">
+              <line class="hx-connector" x1="270" y1="270" x2="270" y2="70"/>
+              <line class="hx-connector" x1="270" y1="270" x2="443" y2="168"/>
+              <line class="hx-connector" x1="270" y1="270" x2="443" y2="372"/>
+              <line class="hx-connector" x1="270" y1="270" x2="270" y2="470"/>
+              <line class="hx-connector" x1="270" y1="270" x2="97" y2="372"/>
+              <line class="hx-connector" x1="270" y1="270" x2="97" y2="168"/>
+              <circle class="hx-orbit hx-orbit-inner" cx="270" cy="270" r="140"/>
+              <circle class="hx-orbit hx-orbit-outer" cx="270" cy="270" r="228"/>
+              <circle class="hx-mark-halo" cx="270" cy="270" r="78" fill="url(#hx-mark-glow)"/>
+              <circle class="hx-mark-pulse" cx="270" cy="270" r="60"/>
+              <circle class="hx-mark-core" cx="270" cy="270" r="52" fill="url(#hx-mark-gradient)"/>
+              <text class="hx-mark-letter" x="270" y="293" text-anchor="middle">Z</text>
             </g>
-            <g class="diagram-node">
-              <rect x="410" y="46" width="192" height="76" rx="16"/>
-              <circle cx="440" cy="84" r="15"/><path class="node-symbol" d="m434 89 6-11 6 11M436 85h8"/>
-              <text x="465" y="89">SEO</text>
-            </g>
-            <g class="diagram-node">
-              <rect x="18" y="318" width="192" height="76" rx="16"/>
-              <circle cx="48" cy="356" r="15"/><path class="node-symbol" d="M41 350h14v11H41zM44 347v3M52 347v3"/>
-              <text x="73" y="352">Social Media</text><text x="73" y="371">Marketing</text>
-            </g>
-            <g class="diagram-node">
-              <rect x="410" y="318" width="192" height="76" rx="16"/>
-              <circle cx="440" cy="356" r="15"/><path class="node-symbol" d="m435 361 1-5 7-7 4 4-7 7zM434 362h14"/>
-              <text x="465" y="361">Content</text>
-            </g>
-            <circle class="diagram-core" cx="310" cy="220" r="47"/>
-            <text class="diagram-z" x="310" y="232" text-anchor="middle">Z</text>
           </svg>
+          <a class="hx-node hx-node-website" href="/development"><span aria-hidden="true"></span>Website Development</a>
+          <a class="hx-node hx-node-seo" href="/seo"><span aria-hidden="true"></span>SEO</a>
+          <a class="hx-node hx-node-social" href="/social-media-marketing"><span aria-hidden="true"></span>Social Media</a>
+          <a class="hx-node hx-node-copy" href="/content-copywriting"><span aria-hidden="true"></span>Content Copywriting</a>
+          <span class="hx-node hx-node-responsive"><span aria-hidden="true"></span>Responsive Design</span>
+          <span class="hx-node hx-node-technical"><span aria-hidden="true"></span>Technical SEO</span>
+        </div>
+      </div>
+    </section>
+    <section class="hx-ticker" aria-label="Services">
+      <div class="hx-ticker-viewport">
+        <div class="hx-ticker-track">
+          <ul class="hx-ticker-group">
+            <li>Website Development</li><li>Responsive Design</li><li>Landing Pages</li><li>SEO</li><li>On-page SEO</li><li>Technical SEO Basics</li><li>Social Media Marketing</li><li>Content Copywriting</li><li>Website Copy</li>
+          </ul>
+          <ul class="hx-ticker-group" aria-hidden="true">
+            <li>Website Development</li><li>Responsive Design</li><li>Landing Pages</li><li>SEO</li><li>On-page SEO</li><li>Technical SEO Basics</li><li>Social Media Marketing</li><li>Content Copywriting</li><li>Website Copy</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -295,7 +314,7 @@
       <div><h2>Services</h2><a href="/development">Website Development</a><a href="/seo">SEO</a><a href="/social-media-marketing">Social Media Marketing</a><a href="/content-copywriting">Content Copywriting</a></div>
       <div class="home-footer-contact"><h2>Contact</h2><a href="mailto:zainndevv@gmail.com">zainndevv@gmail.com</a><div class="home-footer-legal"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-service">Terms of Service</a></div></div>
     </div>
-    <div class="wrap home-footer-bottom"><span>&copy; <span id="year"></span> Zain Digital Growth.</span><span>Thoughtful digital services for small businesses and startups.</span></div>
+    <div class="wrap home-footer-bottom"><span class="home-footer-copyright">&copy; <span id="year">2026</span> Zain Digital Growth.</span><span>Thoughtful digital services for small businesses and startups.</span></div>
   </footer>
   <script src="/script.js"></script>
 </body>
