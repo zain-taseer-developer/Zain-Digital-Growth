@@ -198,6 +198,14 @@ if (searchToggle && siteHeader && searchInput) {
       searchToggle.focus();
     }
   });
+  document.addEventListener("click", function (event) {
+    if (!siteHeader.classList.contains("search-open") ||
+        searchForm.contains(event.target) ||
+        searchToggle.contains(event.target)) return;
+    siteHeader.classList.remove("search-open");
+    searchToggle.setAttribute("aria-expanded", "false");
+    searchToggle.setAttribute("aria-label", "Open search");
+  });
 }
 
 // Contact page: ?service=seo wagaira se dropdown pehle se select ho jata hai
