@@ -284,7 +284,7 @@
     -->
 
     <!-- HIDDEN until I add real client reviews. Replace the placeholders, then remove the hidden attribute. -->
-    <section id="client-stories" class="home-section cs-section" hidden aria-label="Client stories">
+    <section id="client-stories" class="home-section cs-section" aria-label="Client stories">
       <div class="wrap">
         <div class="home-section-intro cs-head">
           <p class="home-eyebrow">Client stories</p>
@@ -322,8 +322,7 @@
     <script>
       (function () {
         var stories = document.getElementById("client-stories");
-        if (!stories || !new URLSearchParams(window.location.search).has("preview-reviews")) return;
-        stories.hidden = false;
+        if (!stories) return;
         if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
         var cards = stories.querySelectorAll(".cs-card");
