@@ -39,8 +39,9 @@ nav>a[aria-current="page"]{background:var(--alt);color:var(--main);font-weight:7
 .header-write-link{white-space:nowrap;font-weight:inherit}
 .header-write-link:hover{background:var(--alt)}
 .burger,.search-toggle{display:none;font-size:1.35rem;background:none;border:0;border-radius:8px;cursor:pointer;color:var(--ink)}
-.site-search-form{position:relative;flex:0 0 260px;width:260px;min-width:260px;margin:0}
-.site-search-field{position:relative;display:block;width:100%;min-width:0}
+.site-search-form{position:relative;flex:0 1 190px;width:190px;min-width:145px;margin:0;transition:flex-basis .2s ease}
+.site-search-form:focus-within{flex-basis:200px}
+.site-search-field{position:relative}
 .site-search-form input{width:100%;height:40px;padding:0 38px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:.875rem;background:var(--alt);color:var(--ink);transition:border-color .15s ease,box-shadow .15s ease}
 .site-search-form input::placeholder{color:var(--muted);opacity:1}
 .site-search-form input:focus{border-color:var(--main);outline:2px solid var(--main);outline-offset:1px;box-shadow:0 0 0 3px rgba(14,116,144,.15);background:#fff}
@@ -144,7 +145,8 @@ footer a:hover{color:#fff}
   .logo{font-size:1.05rem}
   nav{gap:0}
   nav>a,.dd-btn{padding:7px 6px;font-size:.85rem}
-  .site-search-form{flex:0 0 200px;width:200px;min-width:200px}
+  .site-search-form{flex-basis:165px;width:165px;min-width:130px}
+  .site-search-form:focus-within{flex-basis:175px}
 }
 @media(max-width:1180px){
   .burger,.search-toggle{display:grid;place-items:center;width:44px;height:44px;flex:0 0 44px}
