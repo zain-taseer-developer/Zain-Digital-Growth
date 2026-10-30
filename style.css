@@ -287,7 +287,7 @@ footer a:hover{color:#fff}
 .home-process li>span{position:relative;z-index:1;display:grid;place-items:center;width:42px;height:42px;margin-bottom:18px;border:1px solid #c7dfe3;border-radius:50%;background:#fff;color:var(--main);font-size:.82rem;font-weight:800}
 .home-process h3{margin-bottom:7px}
 .home-process p{max-width:28ch;color:var(--muted);font-size:.93rem}
-.home-faq-section{background:#fff}
+.home-faq-section{background:var(--alt)}
 .home-faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(34px,7vw,90px);align-items:start}
 .home-faq-intro .btn{margin-top:22px}
 .home-faq-list details{padding:17px 0;border-bottom:1px solid var(--line)}
@@ -693,3 +693,69 @@ footer a:hover{color:#fff}
 @keyframes hx-float{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,calc(-50% - 5px))}}
 @keyframes hx-beam-glow{0%,100%{opacity:.22}50%{opacity:.9}}
 @keyframes hx-ticker-scroll{to{transform:translateX(-50%)}}
+
+/* Client stories (ported from reference) */
+.cs-section{background:#fff}
+.cs-head{text-align:center;margin-inline:auto}
+.cs-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:20px;
+}
+.cs-card{
+  min-width:0;
+  padding:26px;
+  border:1px solid #e2e8f0;
+  border-radius:20px;
+  background:#fff;
+  transition:all .3s;
+}
+.cs-card:hover{
+  border-color:rgba(14,116,144,.25);
+  box-shadow:0 12px 32px rgba(15,23,42,.08);
+  transform:translateY(-3px);
+}
+.cs-stars{
+  margin-bottom:12px;
+  color:#fbbf24;
+  font-size:.88rem;
+  letter-spacing:2px;
+}
+.cs-quote{
+  margin:0 0 18px;
+  color:#64748b;
+  font-size:.9rem;
+  font-style:italic;
+  line-height:1.78;
+}
+.cs-author{display:flex;align-items:center;gap:12px}
+.cs-avatar{
+  display:grid;
+  width:38px;
+  height:38px;
+  flex:0 0 38px;
+  place-items:center;
+  border-radius:50%;
+  background:var(--main);
+  color:#fff;
+  font-size:.85rem;
+  font-weight:700;
+}
+.cs-card:nth-child(2) .cs-avatar{background:#0f766e}
+.cs-card:nth-child(3) .cs-avatar{background:#3b6b82}
+.cs-name{margin:0;color:#0f172a;font-size:.88rem;font-weight:600}
+.cs-role{margin:2px 0 0;color:#64748b;font-size:.76rem}
+.cs-reveal{
+  opacity:0;
+  transform:translateY(32px);
+  transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .3s;
+}
+.cs-reveal:nth-child(2){transition-delay:.07s}
+.cs-reveal:nth-child(3){transition-delay:.14s}
+.cs-reveal.cs-visible{opacity:1;transform:translateY(0)}
+.cs-reveal.cs-visible:hover{transform:translateY(-3px)}
+@media(prefers-reduced-motion:reduce){
+  .cs-card,.cs-reveal{transition:none}
+  .cs-reveal{opacity:1;transform:none}
+  .cs-card:hover,.cs-reveal.cs-visible:hover{transform:none}
+}

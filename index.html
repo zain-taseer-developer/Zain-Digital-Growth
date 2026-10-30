@@ -283,6 +283,63 @@
     </section>
     -->
 
+    <!-- HIDDEN until I add real client reviews. Replace the placeholders, then remove the hidden attribute. -->
+    <section id="client-stories" class="home-section cs-section" hidden aria-label="Client stories">
+      <div class="wrap">
+        <div class="home-section-intro cs-head">
+          <p class="home-eyebrow">Client stories</p>
+          <h2>What clients say</h2>
+          <p>Feedback from people I have worked with.</p>
+        </div>
+        <div class="cs-grid">
+          <article class="cs-card">
+            <div class="cs-stars" aria-label="Placeholder stars">★★★★★</div>
+            <blockquote class="cs-quote">Client feedback goes here.</blockquote>
+            <div class="cs-author">
+              <span class="cs-avatar" aria-hidden="true">C</span>
+              <div><p class="cs-name">Client name</p><p class="cs-role">Business · Country</p></div>
+            </div>
+          </article>
+          <article class="cs-card">
+            <div class="cs-stars" aria-label="Placeholder stars">★★★★★</div>
+            <blockquote class="cs-quote">Client feedback goes here.</blockquote>
+            <div class="cs-author">
+              <span class="cs-avatar" aria-hidden="true">C</span>
+              <div><p class="cs-name">Client name</p><p class="cs-role">Business · Country</p></div>
+            </div>
+          </article>
+          <article class="cs-card">
+            <div class="cs-stars" aria-label="Placeholder stars">★★★★★</div>
+            <blockquote class="cs-quote">Client feedback goes here.</blockquote>
+            <div class="cs-author">
+              <span class="cs-avatar" aria-hidden="true">C</span>
+              <div><p class="cs-name">Client name</p><p class="cs-role">Business · Country</p></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function () {
+        var stories = document.getElementById("client-stories");
+        if (!stories || !new URLSearchParams(window.location.search).has("preview-reviews")) return;
+        stories.hidden = false;
+        if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        var cards = stories.querySelectorAll(".cs-card");
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("cs-visible");
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.12 });
+        cards.forEach(function (card) {
+          card.classList.add("cs-reveal");
+          observer.observe(card);
+        });
+      }());
+    </script>
     <section class="home-section home-faq-section">
       <div class="wrap home-faq-grid">
         <div class="home-faq-intro">
