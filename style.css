@@ -221,6 +221,24 @@ footer a:hover{color:#fff}
 
 /* Homepage */
 .home-page h2{color:var(--ink)}
+.home-page .home-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  margin-bottom:15px;
+  color:var(--main-dark);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.025em;
+}
+.home-page .home-eyebrow::before{
+  width:8px;
+  height:8px;
+  flex:0 0 8px;
+  border-radius:50%;
+  background:var(--accent);
+  content:"";
+}
 .home-section{padding:clamp(68px,8vw,94px) 0}
 .home-section-intro{max-width:720px;margin-bottom:32px}
 .home-section-intro h2,.home-faq-intro h2{margin-bottom:13px;font-size:clamp(1.8rem,3.4vw,2.55rem);letter-spacing:-.025em}
@@ -463,8 +481,8 @@ footer a:hover{color:#fff}
   outline-offset:3px;
 }
 .hx-trust{
-  display:flex;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:10px 18px;
   padding:0;
   list-style:none;
@@ -477,6 +495,7 @@ footer a:hover{color:#fff}
   font-size:.8rem;
   font-weight:600;
   line-height:1.45;
+  min-width:0;
 }
 .hx-trust svg{
   flex:0 0 18px;
@@ -503,8 +522,13 @@ footer a:hover{color:#fff}
 }
 .hx-connector{
   stroke:#a8cdd2;
-  stroke-width:1.35;
-  opacity:.68;
+  stroke-width:1.5;
+  opacity:.5;
+}
+.hx-beam{
+  stroke:#0e7490;
+  stroke-width:3;
+  opacity:.78;
 }
 .hx-orbit{
   fill:none;
@@ -512,7 +536,7 @@ footer a:hover{color:#fff}
   stroke-dasharray:2 8;
   stroke-linecap:round;
   stroke-width:1.5;
-  opacity:.68;
+  opacity:.5;
 }
 .hx-orbit-outer,.hx-orbit-inner{transform-box:fill-box;transform-origin:center}
 .hx-orbit-inner{stroke:#a8cdd2;stroke-dasharray:2 7}
@@ -537,22 +561,24 @@ footer a:hover{color:#fff}
   align-items:center;
   justify-content:center;
   gap:8px;
-  padding:8px 13px;
+  padding:9px 15px;
   border:1px solid #d7e5e9;
   border-radius:999px;
   background:rgba(255,255,255,.97);
   box-shadow:0 7px 20px rgba(16,54,64,.1);
   color:#213c45;
-  font-size:clamp(.7rem,1vw,.8rem);
+  font-size:13px;
   font-weight:700;
   line-height:1.2;
   white-space:nowrap;
   transform:translate(-50%,-50%);
+  transition:scale .2s ease,border-color .2s ease,box-shadow .2s ease,color .2s ease;
 }
 .hx-node:hover{
   border-color:#a8cdd2;
   box-shadow:0 10px 24px rgba(16,54,64,.14);
   color:var(--hx-deep-teal);
+  scale:1.04;
 }
 .hx-node>span{background:var(--hx-teal)}
 .hx-node-seo>span,.hx-node-copy>span,.hx-node-technical>span{background:var(--hx-amber)}
@@ -621,10 +647,9 @@ footer a:hover{color:#fff}
   .hx-hero h1{max-width:16ch;font-size:clamp(2.4rem,10vw,3rem)}
   .hx-actions{align-items:stretch;flex-direction:column}
   .hx-button{width:100%}
-  .hx-trust{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 8px}
+  .hx-trust{gap:10px 8px}
   .hx-trust li{font-size:.75rem}
-  .hx-diagram{width:min(100%,340px)}
-  .hx-node{min-height:34px;gap:6px;padding:7px 9px;font-size:.7rem}
+  .hx-node{min-height:34px;gap:6px;padding:7px 9px;font-size:.75rem}
   .hx-node>span{flex-basis:6px;width:6px;height:6px}
   .hx-node-website,.hx-node-responsive{left:22%}
   .hx-node-seo,.hx-node-social{left:78%}
@@ -634,6 +659,15 @@ footer a:hover{color:#fff}
   .hx-ticker-viewport,.hx-ticker-track,.hx-ticker-group{min-height:56px}
   .hx-ticker-group{gap:20px;padding-inline:16px}
   .hx-ticker-group li{gap:20px;font-size:.7rem}
+}
+@media(max-width:959px){
+  .hx-diagram{width:min(100%,360px)}
+}
+@media(max-width:599px){
+  .hx-diagram{width:min(100%,300px)}
+}
+@media(max-width:479px){
+  .hx-trust{grid-template-columns:minmax(0,1fr)}
 }
 @media(prefers-reduced-motion:no-preference){
   .hx-orbit-outer{animation:hx-rotate 78s linear infinite}
@@ -646,14 +680,16 @@ footer a:hover{color:#fff}
   .hx-node-responsive{animation-delay:-4s}
   .hx-node-technical{animation-delay:-5s}
   .hx-ticker-track{animation:hx-ticker-scroll 42s linear infinite}
+  .hx-beam{animation:hx-beam-glow 2.8s ease-in-out infinite}
   .hx-ticker:hover .hx-ticker-track,.hx-ticker:focus-within .hx-ticker-track{animation-play-state:paused}
 }
 @media(prefers-reduced-motion:reduce){
-  .hx-orbit-outer,.hx-orbit-inner,.hx-mark-pulse,.hx-node,.hx-ticker-track{animation:none}
+  .hx-orbit-outer,.hx-orbit-inner,.hx-mark-pulse,.hx-node,.hx-ticker-track,.hx-beam{animation:none}
   .hx-button,.hx-button svg{transition:none}
 }
 @keyframes hx-rotate{to{transform:rotate(360deg)}}
 @keyframes hx-rotate-reverse{to{transform:rotate(-360deg)}}
 @keyframes hx-pulse{0%,100%{opacity:.22;transform:scale(.94)}50%{opacity:.66;transform:scale(1.12)}}
 @keyframes hx-float{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,calc(-50% - 5px))}}
+@keyframes hx-beam-glow{0%,100%{opacity:.22}50%{opacity:.9}}
 @keyframes hx-ticker-scroll{to{transform:translateX(-50%)}}
