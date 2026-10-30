@@ -206,3 +206,43 @@ if (sel) {
   var s = new URLSearchParams(window.location.search).get("service");
   if (s) sel.value = s;
 }
+
+// Homepage service accordion enhancement; the full service content stays visible without JavaScript.
+var serviceAccordion = document.getElementById("service-accordion");
+if (serviceAccordion) {
+  var serviceToggles = Array.from(serviceAccordion.querySelectorAll(".service-toggle"));
+  var servicePanels = serviceToggles.map(function (toggle) {
+    return document.getElementById(toggle.getAttribute("aria-controls"));
+  });
+
+  function activateService(index) {
+    serviceToggles.forEach(function (toggle, toggleIndex) {
+      var isExpanded = toggleIndex === index;
+      toggle.setAttribute("aria-expanded", isExpanded);
+      toggle.classList.toggle("is-active", isExpanded);
+      servicePanels[toggleIndex].hidden = !isExpanded;
+    });
+  }
+
+  if (serviceToggles.length && servicePanels.every(Boolean)) {
+    serviceAccordion.classList.add("is-enhanced");
+    activateService(0);
+
+    serviceToggles.forEach(function (toggle, index) {
+      toggle.addEventListener("click", function () {
+        var isExpanded = toggle.getAttribute("aria-expanded") === "true";
+        activateService(isExpanded ? -1 : index);
+      });
+      toggle.addEventListener("keydown", function (event) {
+        var nextIndex = index;
+        if (event.key === "ArrowDown") nextIndex = (index + 1) % serviceToggles.length;
+        else if (event.key === "ArrowUp") nextIndex = (index - 1 + serviceToggles.length) % serviceToggles.length;
+        else if (event.key === "Home") nextIndex = 0;
+        else if (event.key === "End") nextIndex = serviceToggles.length - 1;
+        else return;
+        event.preventDefault();
+        serviceToggles[nextIndex].focus();
+      });
+    });
+  }
+}
