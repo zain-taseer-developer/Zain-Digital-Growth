@@ -747,18 +747,10 @@ footer a:hover{color:#fff}
 .ws-services{padding-top:14px}
 .ws-services-intro{max-width:760px;margin-bottom:30px}
 .ws-services-intro h2{font-size:clamp(1.55rem,3vw,2.1rem)}
-.ws-service-group{margin-top:34px}
-.ws-service-group>h3{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin:0 0 15px;
-  color:var(--ink);
-  font-size:1.12rem;
-}
-.ws-service-group>h3::after{height:1px;flex:1;background:var(--line);content:""}
-.ws-service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ws-service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:16px}
 .ws-service-card{
+  display:flex;
+  flex-direction:column;
   min-width:0;
   padding:20px;
   border:1px solid var(--line);
@@ -788,6 +780,7 @@ footer a:hover{color:#fff}
   padding:0;
   list-style:none;
   counter-reset:ws-stage;
+  margin-top:auto;
 }
 .ws-service-card ol li{
   position:relative;
@@ -799,6 +792,7 @@ footer a:hover{color:#fff}
   font-size:.76rem;
   line-height:1.4;
   counter-increment:ws-stage;
+  overflow-wrap:anywhere;
 }
 .ws-service-card ol li::before{
   position:absolute;
@@ -847,11 +841,9 @@ footer a:hover{color:#fff}
   .ws-step>div:hover{background:#fff}
   .ws-step h3{font-size:1.02rem}
   .ws-step p{font-size:.9rem}
-  .ws-service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:600px){
   .ws-services{padding-top:0}
-  .ws-service-group{margin-top:27px}
   .ws-service-grid{grid-template-columns:minmax(0,1fr);gap:12px}
   .ws-service-card{padding:18px}
   .ws-service-card>p{min-height:0}
