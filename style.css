@@ -494,32 +494,16 @@ footer a:hover{color:#fff}
 .hx-proof{
   display:flex;
   align-items:center;
-  gap:20px;
+  flex-wrap:wrap;
+  gap:12px;
   min-width:0;
   margin-top:20px;
   padding-top:20px;
   border-top:1px solid #dfe8eb;
 }
-.hx-proof-rating{
-  flex:0 0 160px;
-  min-width:0;
-}
-.hx-proof-sample,.hx-proof-reviews,.hx-proof-logos-label,.hx-proof-note{
-  display:block;
+.hx-proof-label{
   color:var(--hx-muted);
-  font-size:.72rem;
-  line-height:1.4;
-}
-.hx-proof-sample{margin-bottom:5px}
-.hx-proof-rating-line{
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:6px 8px;
-}
-.hx-proof-rating-line strong{
-  color:var(--hx-navy);
-  font-size:.82rem;
+  font-size:.78rem;
   line-height:1.4;
 }
 .hx-proof-stars{
@@ -532,37 +516,27 @@ footer a:hover{color:#fff}
   height:15px;
   fill:#fbbf24;
 }
-.hx-proof-reviews{margin-top:3px}
 .hx-proof-logos{
-  flex:1 1 58%;
-  min-width:0;
-  padding-left:20px;
-  border-left:1px solid #dfe8eb;
-}
-.hx-proof-logos-label{margin-bottom:7px}
-.hx-proof-logo-row{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
+  display:flex;
+  align-items:center;
   gap:7px;
+  margin-left:auto;
 }
 .hx-proof-logo{
   display:grid;
-  min-width:0;
-  width:100%;
-  max-width:96px;
+  width:34px;
   height:34px;
+  flex:0 0 34px;
   place-items:center;
-  border:1px solid #e5e9eb;
-  border-radius:6px;
+  border:1px solid #e1e6e8;
+  border-radius:50%;
   background:#f3f5f6;
   color:#879197;
   font-size:.7rem;
   font-weight:600;
   filter:grayscale(1);
   opacity:.75;
-  object-fit:contain;
 }
-.hx-proof-note{margin-top:5px;font-size:.66rem}
 .hx-diagram{
   position:relative;
   width:min(100%,540px);
@@ -717,19 +691,6 @@ footer a:hover{color:#fff}
 }
 @media(max-width:599px){
   .hx-diagram{width:min(100%,300px)}
-}
-@media(max-width:520px){
-  .hx-proof{
-    align-items:stretch;
-    flex-direction:column;
-    gap:14px;
-  }
-  .hx-proof-rating,.hx-proof-logos{flex-basis:auto}
-  .hx-proof-logos{
-    padding:14px 0 0;
-    border-top:1px solid #dfe8eb;
-    border-left:0;
-  }
 }
 @media(prefers-reduced-motion:no-preference){
   .hx-orbit-outer{animation:hx-rotate 78s linear infinite}
