@@ -21,7 +21,7 @@ ul{list-style:none}
 .back-to-top{
   position:fixed;
   right:max(18px,env(safe-area-inset-right));
-  bottom:max(18px,env(safe-area-inset-bottom));
+  bottom:max(76px,calc(env(safe-area-inset-bottom) + 18px));
   z-index:45;
   display:grid;
   width:46px;
