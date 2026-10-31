@@ -2,6 +2,27 @@
 var y = document.getElementById("year");
 if (y) y.textContent = new Date().getFullYear();
 
+// Site-wide back-to-top button
+var backToTop = document.createElement("button");
+backToTop.type = "button";
+backToTop.className = "back-to-top";
+backToTop.setAttribute("aria-label", "Back to top");
+backToTop.textContent = "↑";
+backToTop.hidden = true;
+document.body.appendChild(backToTop);
+
+function updateBackToTopVisibility() {
+  backToTop.hidden = window.scrollY < 400;
+}
+
+window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
+updateBackToTopVisibility();
+
+backToTop.addEventListener("click", function () {
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+});
+
 // Site-wide search
 var searchForm = document.getElementById("site-search-form");
 if (searchForm) {
