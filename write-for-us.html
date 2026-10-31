@@ -26,10 +26,9 @@
         <h1>Write for Us – Share Your Knowledge with the World</h1>
         <p class="lead">Have valuable insights, practical experience, or useful ideas to share? Zain Digital Growth welcomes contributors who want to share their knowledge about web development, SEO, digital marketing, technology, and online business.</p>
         <div class="actions">
-          <a class="btn" href="#submit-your-pitch" data-google-form-cta>Submit Your Pitch</a>
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSesr_P4OySHBRa_lduGZv1A66ln1BPvG3-LJdycSKg2aXSOWw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">Submit Your Pitch</a>
           <a class="write-text-link" href="#writing-guidelines">Read Our Writing Guidelines <span aria-hidden="true">↓</span></a>
         </div>
-        <p class="write-form-status" id="google-form-status" role="status" aria-live="polite"></p>
       </div>
     </section>
 
@@ -191,33 +190,13 @@
         <h2 id="write-final-title">Have an Idea Worth Sharing?</h2>
         <p>Turn your knowledge and experience into something valuable for our readers. Submit your article idea and let us review your pitch.</p>
         <div class="actions center">
-          <a class="btn" href="#submit-your-pitch" data-google-form-cta>Submit Your Pitch <span aria-hidden="true">→</span></a>
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSesr_P4OySHBRa_lduGZv1A66ln1BPvG3-LJdycSKg2aXSOWw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">Submit Your Pitch <span aria-hidden="true">→</span></a>
           <a class="btn ghost-light" href="/">Back to Home</a>
         </div>
-        <p class="write-form-status" role="status" aria-live="polite"></p>
       </div>
     </section>
   </main>
   <footer><div class="wrap fgrid"><div><a class="logo" href="/"><span class="mark">Z</span>Zain Digital Growth</a><p>Website development, SEO, social media marketing and content copywriting for small businesses and startups.</p></div><div><h4>Explore</h4><a href="/">Home</a><a href="/about">About</a><a href="/portfolio">Portfolio</a><a href="/faq">FAQ</a><a href="/contact">Contact</a><a href="/blogs">Blog</a><a href="/write-for-us">Write for Us</a></div><div><h4>Services</h4><a href="/development">Website Development</a><a href="/seo">SEO</a><a href="/social-media-marketing">Social Media Marketing</a><a href="/content-copywriting">Content Copywriting</a></div><div><h4>Information</h4><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-service">Terms of Service</a></div><div><h4>Project enquiries</h4><a href="mailto:zainndevv@gmail.com">zainndevv@gmail.com</a></div></div><div class="wrap legal"><span>&copy; <span id="year"></span> Zain Digital Growth.</span><span><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-service">Terms of Service</a></span></div></footer>
-  <script>
-    const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSesr_P4OySHBRa_lduGZv1A66ln1BPvG3-LJdycSKg2aXSOWw/viewform?usp=publish-editor";
-    const hasGoogleFormUrl = /^https:\/\/(?:docs\.google\.com\/forms\/|forms\.gle\/)/.test(GOOGLE_FORM_URL);
-
-    document.querySelectorAll("[data-google-form-cta]").forEach(function (link) {
-      if (hasGoogleFormUrl) {
-        link.href = GOOGLE_FORM_URL;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-      } else {
-        link.addEventListener("click", function (event) {
-          event.preventDefault();
-          const section = link.closest(".write-hero, .write-final-cta");
-          const status = section && section.querySelector(".write-form-status");
-          if (status) status.textContent = "The pitch form is not connected yet. Replace the GOOGLE_FORM_URL placeholder in this page with your Google Form link.";
-        });
-      }
-    });
-  </script>
   <script src="/script.js"></script>
 </body>
 </html>
