@@ -580,7 +580,7 @@ footer a:hover{color:#fff}
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  padding:clamp(80px,8vw,108px) 0;
+  padding:clamp(60px,6vw,82px) 0;
   background:radial-gradient(ellipse at 76% 48%,rgba(28,154,168,.12),transparent 36%),linear-gradient(135deg,#f3f9fa 0%,#fff 56%,#f6fafb 100%);
 }
 .hx-hero::before{
@@ -896,12 +896,12 @@ footer a:hover{color:#fff}
 .home-footer-bottom span{display:inline;margin:0}
 .home-footer-bottom .home-footer-copyright{white-space:nowrap}
 @media(max-width:900px){
-  .hx-hero{padding:74px 0}
+  .hx-hero{padding:62px 0}
   .hx-hero-grid{grid-template-columns:minmax(0,1fr);gap:30px}
   .hx-diagram{width:min(100%,520px);justify-self:center}
 }
 @media(max-width:520px){
-  .hx-hero{padding:58px 0}
+  .hx-hero{padding:48px 0}
   .hx-hero-grid{gap:26px}
   .hx-chip{gap:8px;padding:8px 11px;font-size:.6875rem;letter-spacing:.07em}
   .hx-actions{align-items:stretch;flex-direction:column}
