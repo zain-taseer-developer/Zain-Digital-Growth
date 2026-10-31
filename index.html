@@ -390,6 +390,87 @@
         });
       }());
     </script>
+    <section class="home-section home-blog-section" aria-labelledby="home-blog-title">
+      <div class="wrap">
+        <div class="home-section-intro home-blog-intro">
+          <p class="home-eyebrow">Fresh ideas for your growth</p>
+          <h2 id="home-blog-title">Latest from the blog</h2>
+          <p>Practical tips and clear advice for building a stronger online presence.</p>
+        </div>
+        <div class="home-blog-filters" role="group" aria-label="Filter articles by category">
+          <button class="home-blog-filter is-active" type="button" data-blog-filter="all" aria-pressed="true">All articles</button>
+          <button class="home-blog-filter" type="button" data-blog-filter="seo" aria-pressed="false">SEO</button>
+          <button class="home-blog-filter" type="button" data-blog-filter="website-development" aria-pressed="false">Website Development</button>
+          <button class="home-blog-filter" type="button" data-blog-filter="social-media-marketing" aria-pressed="false">Social Media</button>
+          <button class="home-blog-filter" type="button" data-blog-filter="content-copywriting" aria-pressed="false">Copywriting</button>
+        </div>
+        <p class="home-blog-status" id="home-blog-status" role="status" aria-live="polite">Showing the 3 latest articles.</p>
+        <div class="home-blog-grid">
+          <article class="card blog-card home-blog-card" data-blog-category="seo">
+            <p class="blog-meta"><a href="/category/seo">SEO</a></p>
+            <h3>SEO basics for a small business website</h3>
+            <p>A useful starting point for making your pages easier for both people and search engines to understand.</p>
+            <a href="/blog-seo-basics">Read more</a>
+          </article>
+          <article class="card blog-card home-blog-card" data-blog-category="content-copywriting">
+            <p class="blog-meta"><a href="/category/content-copywriting">Content Copywriting</a></p>
+            <h3>What your business homepage needs to say</h3>
+            <p>Help new visitors quickly understand what you do, who you help and what they can do next.</p>
+            <a href="/blog-homepage-copy">Read more</a>
+          </article>
+          <article class="card blog-card home-blog-card" data-blog-category="seo">
+            <p class="blog-meta"><a href="/category/seo">SEO</a></p>
+            <h3>A practical local SEO checklist for small businesses</h3>
+            <p>Make it easier for nearby customers to find accurate, helpful information about your business.</p>
+            <a href="/blog-local-seo">Read more</a>
+          </article>
+          <article class="card blog-card home-blog-card" data-blog-category="social-media-marketing" hidden>
+            <p class="blog-meta"><a href="/category/social-media-marketing">Social Media Marketing</a></p>
+            <h3>Build a social media plan you can actually keep up with</h3>
+            <p>Choose a realistic rhythm and turn everyday business knowledge into useful posts.</p>
+            <a href="/blog-social-media-plan">Read more</a>
+          </article>
+          <article class="card blog-card home-blog-card" data-blog-category="website-development" hidden>
+            <p class="blog-meta"><a href="/category/website-development">Website Development</a></p>
+            <h3>Simple ways to make your website feel faster</h3>
+            <p>Understand the common causes of slow pages and what to check before redesigning your site.</p>
+            <a href="/blog-website-speed">Read more</a>
+          </article>
+        </div>
+        <a class="home-blog-all" href="/blogs">Browse all articles <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+    <script>
+      (function () {
+        var section = document.querySelector(".home-blog-section");
+        if (!section) return;
+        var filters = Array.from(section.querySelectorAll("[data-blog-filter]"));
+        var cards = Array.from(section.querySelectorAll("[data-blog-category]"));
+        var status = section.querySelector("#home-blog-status");
+
+        filters.forEach(function (filter) {
+          filter.addEventListener("click", function () {
+            var category = filter.getAttribute("data-blog-filter");
+            var matchingCards = cards.filter(function (card) {
+              return category === "all" || card.getAttribute("data-blog-category") === category;
+            });
+            var visibleCards = category === "all" ? matchingCards.slice(0, 3) : matchingCards;
+
+            cards.forEach(function (card) {
+              card.hidden = !visibleCards.includes(card);
+            });
+            filters.forEach(function (button) {
+              var isActive = button === filter;
+              button.classList.toggle("is-active", isActive);
+              button.setAttribute("aria-pressed", String(isActive));
+            });
+            status.textContent = category === "all"
+              ? "Showing the 3 latest articles."
+              : "Showing " + visibleCards.length + (visibleCards.length === 1 ? " article." : " articles.") ;
+          });
+        });
+      }());
+    </script>
     <section class="home-section home-faq-section">
       <div class="wrap home-faq-grid">
         <div class="home-faq-intro">
