@@ -51,6 +51,20 @@ if (blogComments) {
     commentStatus.textContent = error.message || "Could not load comments.";
   });
 
+  window.setInterval(function () {
+    if (document.visibilityState !== "visible") return;
+    loadBlogComments().catch(function (error) {
+      commentStatus.textContent = error.message || "Could not refresh comments.";
+    });
+  }, 15000);
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState !== "visible") return;
+    loadBlogComments().catch(function (error) {
+      commentStatus.textContent = error.message || "Could not refresh comments.";
+    });
+  });
+
   commentForm.addEventListener("submit", async function (event) {
     event.preventDefault();
     var submitButton = commentForm.querySelector('button[type="submit"]');
