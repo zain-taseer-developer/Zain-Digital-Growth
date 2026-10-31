@@ -527,6 +527,7 @@ footer a:hover{color:#fff}
 .home-footer h2{margin:5px 0 14px;color:#fff;font-size:.98rem;letter-spacing:0}
 .home-footer-grid>div>a:not(.logo),.home-footer-legal a{display:block;width:fit-content;margin-bottom:9px;color:#c1d0d5;font-size:.92rem;overflow-wrap:anywhere}
 .home-footer-grid>div>a:hover,.home-footer-legal a:hover{color:#fff}
+.home-footer-location{max-width:28ch;margin:2px 0 0;color:#a9c4cc;font-size:.9rem;line-height:1.55}
 .home-footer-legal{margin-top:20px;padding-top:16px;border-top:1px solid #16323d}
 .home-footer-bottom{display:flex;justify-content:space-between;gap:15px;padding-top:18px;padding-bottom:22px;border-top:1px solid #16323d;color:#a9c4cc;font-size:.88rem}
 @keyframes home-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
