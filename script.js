@@ -273,10 +273,53 @@ if (searchForm) {
 // Mobile menu
 var burger = document.getElementById("burger");
 var nav = document.getElementById("nav");
+var mobileNavigation = window.matchMedia("(max-width: 1180px)");
+var dropdowns = nav ? Array.from(nav.querySelectorAll(".dd")) : [];
+
+function setDropdownOpen(dropdown, open) {
+  dropdown.classList.toggle("open", open);
+  var toggle = dropdown.querySelector(".dd-btn");
+  if (toggle) {
+    toggle.setAttribute("aria-haspopup", "true");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+}
+
+dropdowns.forEach(function (dropdown) {
+  var toggle = dropdown.querySelector(".dd-btn");
+  if (!toggle) return;
+  setDropdownOpen(dropdown, false);
+  toggle.addEventListener("click", function () {
+    if (!mobileNavigation.matches) return;
+    var shouldOpen = !dropdown.classList.contains("open");
+    dropdowns.forEach(function (item) { setDropdownOpen(item, false); });
+    if (shouldOpen) setDropdownOpen(dropdown, true);
+  });
+});
+
 if (burger && nav) {
   burger.addEventListener("click", function () {
     var open = nav.classList.toggle("open");
     burger.setAttribute("aria-expanded", open);
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (!open) dropdowns.forEach(function (dropdown) { setDropdownOpen(dropdown, false); });
+  });
+}
+
+if (dropdowns.length) {
+  document.addEventListener("click", function (event) {
+    if (!mobileNavigation.matches || nav.contains(event.target)) return;
+    dropdowns.forEach(function (dropdown) { setDropdownOpen(dropdown, false); });
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape" || !mobileNavigation.matches) return;
+    var openDropdown = dropdowns.find(function (dropdown) { return dropdown.classList.contains("open"); });
+    if (!openDropdown) return;
+    setDropdownOpen(openDropdown, false);
+    openDropdown.querySelector(".dd-btn").focus();
+  });
+  mobileNavigation.addEventListener("change", function () {
+    dropdowns.forEach(function (dropdown) { setDropdownOpen(dropdown, false); });
   });
 }
 
