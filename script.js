@@ -2,6 +2,85 @@
 var y = document.getElementById("year");
 if (y) y.textContent = new Date().getFullYear();
 
+// Public comments on individual blog posts
+var blogComments = document.querySelector("[data-blog-comments]");
+if (blogComments) {
+  var commentForm = blogComments.querySelector(".blog-comment-form");
+  var commentList = blogComments.querySelector(".blog-comment-list");
+  var commentStatus = blogComments.querySelector(".blog-comment-status");
+  var commentSlug = blogComments.getAttribute("data-blog-comments");
+  var commentsUrl = "/.netlify/functions/blog-comments?slug=" + encodeURIComponent(commentSlug);
+
+  function renderBlogComments(comments) {
+    commentList.replaceChildren();
+    if (!comments.length) {
+      var emptyMessage = document.createElement("p");
+      emptyMessage.className = "blog-comments-empty";
+      emptyMessage.textContent = "No comments yet. Be the first to join the conversation.";
+      commentList.appendChild(emptyMessage);
+      return;
+    }
+
+    comments.forEach(function (comment) {
+      var article = document.createElement("article");
+      article.className = "blog-comment";
+      var heading = document.createElement("div");
+      heading.className = "blog-comment-heading";
+      var name = document.createElement("strong");
+      name.textContent = comment.name;
+      var date = document.createElement("time");
+      date.dateTime = comment.createdAt;
+      date.textContent = new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(comment.createdAt));
+      var message = document.createElement("p");
+      message.textContent = comment.comment;
+      heading.append(name, date);
+      article.append(heading, message);
+      commentList.appendChild(article);
+    });
+  }
+
+  async function loadBlogComments() {
+    var response = await fetch(commentsUrl, { headers: { Accept: "application/json" } });
+    var result = await response.json();
+    if (!response.ok) throw new Error(result.error || "Could not load comments.");
+    renderBlogComments(result.comments);
+  }
+
+  loadBlogComments().catch(function (error) {
+    commentList.textContent = "";
+    commentStatus.textContent = error.message || "Could not load comments.";
+  });
+
+  commentForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    var submitButton = commentForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    commentStatus.textContent = "Posting your comment…";
+
+    try {
+      var formData = new FormData(commentForm);
+      var response = await fetch(commentsUrl, {
+        method: "POST",
+        headers: { "content-type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          comment: formData.get("comment"),
+          website: formData.get("website"),
+        }),
+      });
+      var result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Could not post your comment.");
+      commentForm.reset();
+      commentStatus.textContent = result.message;
+      await loadBlogComments();
+    } catch (error) {
+      commentStatus.textContent = error.message || "Could not post your comment. Please try again.";
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+}
+
 // Site-wide back-to-top button
 var backToTop = document.createElement("button");
 backToTop.type = "button";
