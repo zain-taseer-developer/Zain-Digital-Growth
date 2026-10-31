@@ -399,14 +399,16 @@ footer a:hover{color:#fff}
   max-width:20ch;
   margin:0 0 20px;
   color:var(--hx-navy);
-  font-size:clamp(2.4rem,5vw,4rem);
+  font-size:clamp(2rem,4.2vw,3.4rem);
   font-weight:800;
-  letter-spacing:-.05em;
-  line-height:1.08;
+  letter-spacing:-.015em;
+  line-height:1.12;
+  text-wrap:balance;
 }
 .hx-accent{
   background:linear-gradient(110deg,#0e7490,#168d9b);
   background-clip:text;
+  font-size:.76em;
   -webkit-text-fill-color:transparent;
 }
 .hx-lead{
@@ -628,13 +630,11 @@ footer a:hover{color:#fff}
   .hx-hero{padding:74px 0}
   .hx-hero-grid{grid-template-columns:minmax(0,1fr);gap:30px}
   .hx-diagram{width:min(100%,520px);justify-self:center}
-  .hx-hero h1{max-width:17ch}
 }
 @media(max-width:520px){
   .hx-hero{padding:58px 0}
   .hx-hero-grid{gap:26px}
   .hx-chip{gap:8px;padding:8px 11px;font-size:.6875rem;letter-spacing:.07em}
-  .hx-hero h1{max-width:16ch;font-size:clamp(2.4rem,10vw,3rem)}
   .hx-actions{align-items:stretch;flex-direction:column}
   .hx-button{width:100%}
   .hx-trust{gap:10px 8px}
