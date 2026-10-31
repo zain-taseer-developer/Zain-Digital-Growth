@@ -668,16 +668,16 @@ footer a:hover{color:#fff}
   font-weight:700;
   line-height:1.25;
   text-align:center;
-  transition:transform .2s ease;
+  transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease;
 }
 .hx-button-primary{
-  background:var(--hx-amber);
-  color:#241a06;
-  box-shadow:0 7px 17px rgba(183,112,3,.16);
+  background:var(--hx-teal);
+  color:#fff;
+  box-shadow:0 7px 17px rgba(14,116,144,.18);
 }
 .hx-button-primary:hover{
-  background:#e99408;
-  box-shadow:0 10px 22px rgba(183,112,3,.22);
+  background:var(--hx-deep-teal);
+  box-shadow:0 10px 22px rgba(10,90,112,.24);
   transform:translateY(-2px);
 }
 .hx-button-secondary{
