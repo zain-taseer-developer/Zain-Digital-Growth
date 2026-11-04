@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">AI-powered website development</title>
+  <desc id="description">A digital assistant connects a website design with a responsive page preview.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e7f5f5"/>
+      <stop offset="1" stop-color="#f8f2e7"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0b5968"/>
+      <stop offset="1" stop-color="#12384a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="36" fill="url(#background)"/>
+  <circle cx="1000" cy="115" r="95" fill="#d2ebeb"/>
+  <circle cx="190" cy="550" r="124" fill="#f3e5cf"/>
+  <rect x="139" y="115" width="634" height="420" rx="24" fill="#fff" stroke="#bfd8dc" stroke-width="4"/>
+  <path d="M139 139a24 24 0 0 1 24-24h586a24 24 0 0 1 24 24v43H139z" fill="#eff5f5"/>
+  <circle cx="172" cy="149" r="7" fill="#ed947a"/>
+  <circle cx="197" cy="149" r="7" fill="#f2c56b"/>
+  <circle cx="222" cy="149" r="7" fill="#83c7b2"/>
+  <rect x="181" y="219" width="231" height="271" rx="16" fill="url(#screen)"/>
+  <rect x="208" y="252" width="120" height="12" rx="6" fill="#91d8d1"/>
+  <rect x="208" y="280" width="171" height="24" rx="7" fill="#fff"/>
+  <rect x="208" y="317" width="153" height="24" rx="7" fill="#fff"/>
+  <rect x="208" y="357" width="160" height="9" rx="4" fill="#b9d1d4"/>
+  <rect x="208" y="375" width="137" height="9" rx="4" fill="#b9d1d4"/>
+  <rect x="208" y="416" width="104" height="38" rx="19" fill="#f3b84b"/>
+  <rect x="438" y="229" width="285" height="17" rx="8" fill="#173f4a"/>
+  <rect x="438" y="264" width="235" height="10" rx="5" fill="#a9c5c8"/>
+  <rect x="438" y="283" width="255" height="10" rx="5" fill="#a9c5c8"/>
+  <rect x="438" y="329" width="128" height="116" rx="14" fill="#e1f1ef"/>
+  <rect x="580" y="329" width="143" height="116" rx="14" fill="#f5ead7"/>
+  <path d="M466 403l28-31 19 18 23-30" fill="none" stroke="#138293" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="666" cy="373" r="26" fill="#e8a650"/>
+  <path d="M634 420c7-23 57-23 64 0" fill="#e8a650"/>
+  <rect x="244" y="556" width="550" height="18" rx="9" fill="#9bbdc0"/>
+  <rect x="836" y="204" width="245" height="328" rx="30" fill="#12384a"/>
+  <rect x="849" y="235" width="219" height="265" rx="19" fill="#fff"/>
+  <rect x="872" y="258" width="93" height="12" rx="6" fill="#138293"/>
+  <rect x="872" y="286" width="173" height="82" rx="12" fill="#e1f1ef"/>
+  <rect x="872" y="389" width="158" height="10" rx="5" fill="#a9c5c8"/>
+  <rect x="872" y="409" width="177" height="10" rx="5" fill="#a9c5c8"/>
+  <rect x="872" y="442" width="112" height="34" rx="17" fill="#e8a650"/>
+  <rect x="928" y="211" width="60" height="6" rx="3" fill="#71939c"/>
+  <circle cx="960" cy="518" r="6" fill="#b7cdd0"/>
+  <path d="M799 284h35m-35 88h35m-35 89h35" stroke="#1393a1" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 12"/>
+  <circle cx="836" cy="284" r="7" fill="#f3b84b"/>
+  <circle cx="836" cy="372" r="7" fill="#f3b84b"/>
+  <circle cx="836" cy="461" r="7" fill="#f3b84b"/>
+  <circle cx="997" cy="154" r="31" fill="#138293"/>
+  <path d="M997 136v36m-18-18h36m-31-13 26 26m0-26-26 26" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1080 338h52m-26-26v52" stroke="#e8a650" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="1095" cy="477" r="8" fill="#138293"/>
+  <circle cx="1123" cy="477" r="8" fill="#e8a650"/>
+</svg>
