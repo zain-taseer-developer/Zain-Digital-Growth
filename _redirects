@@ -9,11 +9,12 @@
 /development.html /services/website-development 301
 /seo.html /services/seo 301
 /social-media-marketing.html /services/social-media-marketing 301
-/services /services.html 200
+/services / 301
+/services.html / 301
 /services/website-development /development.html 200
 /services/seo /seo.html 200
 /services/social-media-marketing /social-media-marketing.html 200
-/services/content-copywriting /services 301
+/services/content-copywriting / 301
 /blog-seo-basics /blog/seo-basics 301
 /blog-local-seo /blog/local-seo 301
 /blog-social-media-plan /blog/social-media-plan 301
