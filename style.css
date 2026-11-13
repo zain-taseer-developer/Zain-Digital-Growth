@@ -65,8 +65,6 @@ nav>a.btn.compact:hover,nav>a.btn.compact:focus-visible{background:var(--main-da
 .dd-menu a:hover{background:var(--alt)}
 .dd-menu .nav-description{display:block;color:var(--muted);font-size:.82rem}
 .blog-dd .dd-menu{width:300px}
-.header-write-link{white-space:nowrap;font-weight:inherit}
-.header-write-link:hover{background:var(--alt)}
 .burger{display:none;font-size:1.35rem;background:none;border:0;border-radius:8px;cursor:pointer;color:var(--ink)}
 .search-toggle{display:inline-flex;flex:0 0 auto;align-items:center;padding:4px 2px;border:0;border-radius:0;background:none;color:var(--main-dark);font:inherit;font-size:.9rem;font-weight:600;text-decoration:underline;text-decoration-color:#9fcbd3;text-decoration-thickness:1px;text-underline-offset:4px;white-space:nowrap;cursor:pointer}
 .search-toggle:hover{color:var(--main);text-decoration-color:currentColor}
@@ -196,7 +194,6 @@ footer a:hover{color:#fff}
   .dd-menu{position:static;width:auto;border:0;box-shadow:none;padding:0 0 0 12px;animation:none}
   .dd.open .dd-menu{display:block}
   .blog-dd .dd-menu{width:auto}
-  .header-write-link{display:block}
   .btn.compact{margin-left:0}
 }
 @media(max-width:900px){
