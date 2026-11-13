@@ -4,7 +4,6 @@ import { getStore } from "@netlify/blobs";
 const allowedSlugs = new Set([
   "seo-basics",
   "local-seo",
-  "homepage-copy",
   "website-speed",
   "social-media-plan",
 ]);

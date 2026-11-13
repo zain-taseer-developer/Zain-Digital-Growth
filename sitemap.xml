@@ -28,11 +28,6 @@
        <priority>0.8000</priority>
   </url>
   <url>
-       <loc>https://zain-digital-growth.netlify.app/services/content-copywriting</loc>
-       <lastmod>2026-11-13T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
        <loc>https://zain-digital-growth.netlify.app/portfolio</loc>
        <lastmod>2026-10-30T05:46:03+00:00</lastmod>
        <priority>0.8000</priority>
@@ -68,11 +63,6 @@
        <priority>0.8000</priority>
   </url>
   <url>
-       <loc>https://zain-digital-growth.netlify.app/category/content-copywriting</loc>
-       <lastmod>2026-10-30T05:46:03+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
        <loc>https://zain-digital-growth.netlify.app/write-for-us</loc>
        <lastmod>2026-10-30T05:46:03+00:00</lastmod>
        <priority>0.8000</priority>
@@ -94,11 +84,6 @@
   </url>
   <url>
        <loc>https://zain-digital-growth.netlify.app/blog/seo-basics</loc>
-       <lastmod>2026-11-13T00:00:00+00:00</lastmod>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://zain-digital-growth.netlify.app/blog/homepage-copy</loc>
        <lastmod>2026-11-13T00:00:00+00:00</lastmod>
        <priority>0.6400</priority>
   </url>

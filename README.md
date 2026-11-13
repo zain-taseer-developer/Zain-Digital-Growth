@@ -1,6 +1,6 @@
 # Zain Digital Growth
 
-Static website for website development, SEO, social media marketing, and content copywriting services.
+Static website for website development, SEO, and social media marketing services.
 
 ## Blog comments
 

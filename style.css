@@ -867,11 +867,10 @@ footer a:hover{color:#fff}
   scale:1.04;
 }
 .hx-node>span{background:var(--hx-teal)}
-.hx-node-seo>span,.hx-node-copy>span,.hx-node-technical>span{background:var(--hx-amber)}
+.hx-node-seo>span,.hx-node-technical>span{background:var(--hx-amber)}
 .hx-node-website{top:13%;left:50%}
 .hx-node-seo{top:31%;left:82%}
 .hx-node-social{top:69%;left:82%}
-.hx-node-copy{top:87%;left:50%}
 .hx-node-responsive{top:69%;left:18%}
 .hx-node-technical{top:31%;left:18%}
 .hx-ticker{
@@ -954,7 +953,6 @@ footer a:hover{color:#fff}
   .hx-node>span{flex-basis:6px;width:6px;height:6px}
   .hx-node-website,.hx-node-responsive{left:22%}
   .hx-node-seo,.hx-node-social{left:78%}
-  .hx-node-copy{top:85%}
   .hx-node-responsive,.hx-node-social{top:68%}
   .hx-node-technical,.hx-node-seo{top:32%}
   .hx-ticker-viewport,.hx-ticker-track,.hx-ticker-group{min-height:56px}
@@ -974,7 +972,6 @@ footer a:hover{color:#fff}
   .hx-node{animation:hx-float 7s ease-in-out infinite}
   .hx-node-seo{animation-delay:-1s}
   .hx-node-social{animation-delay:-2s}
-  .hx-node-copy{animation-delay:-3s}
   .hx-node-responsive{animation-delay:-4s}
   .hx-node-technical{animation-delay:-5s}
   .hx-ticker-track{animation:hx-ticker-scroll 42s linear infinite}
